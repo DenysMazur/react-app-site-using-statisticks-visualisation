@@ -1,0 +1,10 @@
+{
+  "database": {
+    "db": "site-statistic",
+    "username": "user",
+    "password": "pass",
+    "dialect": "sqlite",
+    "host": "./dev-database.sqlite",
+    "logging": true
+  }
+}
