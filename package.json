@@ -2,55 +2,23 @@
   "name": "react-app-site-using-statistics-by-users-visualization",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "index.js",
   "scripts": {
-    "start": "cross-env NODE_ENV=development nodemon server",
-    "start:prod": "cross-env NODE_ENV=production node server",
-    "prepare": "husky install",
-    "_lint": "eslint --config ./.eslintrc.json --ext js --ext jsx --ext tsx --ext ts",
-    "lint": "npm run _lint --",
-    "lint:fix": "npm run _lint -- --fix",
-    "format": "prettier --write './**/*.{js,jsx,ts,tsx}'"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepare": "husky install"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/DenysMazur/react-app-site-using-statistics-by-users-visualization.git"
   },
-  "keywords": [],
   "author": "Denys Mazur",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/DenysMazur/react-app-site-using-statistics-by-users-visualization/issues"
   },
   "homepage": "https://github.com/DenysMazur/react-app-site-using-statistics-by-users-visualization#readme",
-  "dependencies": {
-    "config": "^3.3.7",
-    "cors": "^2.8.5",
-    "express": "^4.17.2",
-    "sequelize": "^6.13.0",
-    "sqlite3": "^5.0.2"
-  },
   "devDependencies": {
-    "cross-env": "^7.0.3",
-    "eslint": "^7.32.0",
-    "eslint-config-airbnb": "^19.0.0",
-    "eslint-config-prettier": "^8.3.0",
-    "eslint-config-standard": "^16.0.3",
-    "eslint-plugin-import": "^2.25.3",
-    "eslint-plugin-jsx-a11y": "^6.5.1",
-    "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-prettier": "^4.0.0",
-    "eslint-plugin-promise": "^5.1.1",
-    "eslint-plugin-react": "^7.27.1",
-    "eslint-plugin-react-hooks": "^4.3.0",
-    "husky": "^7.0.4",
-    "lint-staged": "^12.0.2",
-    "nodemon": "^2.0.15",
-    "prettier": "^2.4.1"
-  },
-  "lint-staged": {
-    "*.{js,ts,jsx,tsx}": [
-      "eslint --fix"
-    ]
+    "husky": "^7.0.0",
+    "lerna": "^4.0.0"
   }
 }
