@@ -11,7 +11,15 @@ router.get('/', pagination, async (req, res) => {
 })
 router.get('/user/:id', idNumberControl, async (req, res, next) => {
   try {
-    const user = await UserService.getUser(req.params.id)
+    const user = await UserService.getUser(req)
+    res.send(user)
+  } catch (err) {
+    next(err)
+  }
+})
+router.post('/user-statistics', idNumberControl, async (req, res, next) => {
+  try {
+    const user = await UserService.getUserStatistics(req)
     res.send(user)
   } catch (err) {
     next(err)

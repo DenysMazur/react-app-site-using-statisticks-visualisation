@@ -1,4 +1,5 @@
 /* eslint-disable camelcase */
+const { Op } = require('sequelize')
 const User = require('./User')
 const sequelize = require('../config/database')
 const UserNotFoundException = require('./UserNotFoundException')
@@ -31,16 +32,51 @@ const getUsers = async pagination => {
   }
 }
 
-const getUser = async id => {
-  const user = await User.findOne({ where: { id: id } })
+const getUser = async req => {
+  const { startDate, endDate } = req.query
+  const { id } = req.params
+  const user = await User.findOne({
+    where: { id: id }
+    // include: [
+    //   {
+    //     association: 'statistic',
+    //     where: {
+    //       date: {
+    //         [Op.between]: [startDate, endDate]
+    //       }
+    //     }
+    //   }
+    // ]
+  })
   if (!user) {
     throw new UserNotFoundException()
   }
   return user
 }
 
+const getUserStatistics = async req => {
+  const { id, startDate, endDate } = req.body
+  const user = await User.findOne({
+    where: { id: id },
+    include: [
+      {
+        association: 'statistic',
+        where: {
+          date: {
+            [Op.between]: [startDate, endDate]
+          }
+        }
+      }
+    ]
+  })
+  if (!user) {
+    throw new UserNotFoundException()
+  }
+  return user
+}
 module.exports = {
   createUser,
   getUsers,
-  getUser
+  getUser,
+  getUserStatistics
 }

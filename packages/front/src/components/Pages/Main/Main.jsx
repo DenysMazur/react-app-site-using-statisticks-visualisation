@@ -1,9 +1,14 @@
 import React from 'react'
-import Box from '@mui/material/Box'
+import MainHeader from './MainHeader'
+import MainContent from './MainContent'
+import MainFooter from './MainFooter'
 
-const Main = () => {
-  const a = ''
-  return <Box sx={{ color: 'red' }}>Hello</Box>
-}
+const Main = () => (
+  <>
+    <MainHeader />
+    <MainContent />
+    <MainFooter />
+  </>
+)
 
 export default React.memo(Main)

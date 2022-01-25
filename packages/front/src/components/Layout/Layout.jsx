@@ -1,12 +1,33 @@
-import React from 'react'
-import Container from '@mui/material/Container'
-import { Outlet } from 'react-router-dom'
+import React, { useEffect, useState } from 'react'
+import { Outlet, useLocation } from 'react-router-dom'
 import { Toolbar } from '@mui/material'
+import Header from '../Header/Header'
+import Footer from '../Footer/Footer'
 
-const Layout = () => (
-  <Container maxWidth="xl">
-    <Outlet />
-  </Container>
-)
+const Layout = () => {
+  const location = useLocation()
+  const [displayElems, setDisplayElems] = useState(false)
+  useEffect(() => {
+    if (location.pathname !== '/') {
+      setDisplayElems(true)
+      return null
+    }
+    setDisplayElems(false)
+    return null
+  }, [location])
+  return (
+    <>
+      <Header displayElem={displayElems} />
+      <Toolbar
+        sx={{
+          '&.MuiToolbar-root': { minHeight: '71px' },
+          display: displayElems ? 'block' : 'none'
+        }}
+      />
+      <Outlet />
+      <Footer displayElem={displayElems} />
+    </>
+  )
+}
 
 export default React.memo(Layout)
