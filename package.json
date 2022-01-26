@@ -1,24 +1,52 @@
 {
-  "name": "react-app-site-using-statistics-by-users-visualization",
+  "name": "react-app-users-statistic",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "prepare": "husky install"
+    "heroku-postbuild": "cd client && npm install && npm run build",
+    "prepare": "husky install",
+    "start": "cross-env NODE_ENV=development nodemon server",
+    "start:prod": "cross-env NODE_ENV=production node server",
+    "_lint": "eslint --config ./.eslintrc.json --ext js --ext jsx --ext tsx --ext ts",
+    "lint": "npm run _lint --",
+    "lint:fix": "npm run _lint -- --fix",
+    "format": "prettier --write './**/*.{js,jsx,ts,tsx}'",
+    "precommit": "lint-staged"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/DenysMazur/react-app-site-using-statistics-by-users-visualization.git"
+    "url": "git+https://github.com/DenysMazur/react-app-users-statistic.git"
   },
+  "keywords": [],
   "author": "Denys Mazur",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/DenysMazur/react-app-site-using-statistics-by-users-visualization/issues"
+    "url": "https://github.com/DenysMazur/react-app-users-statistic/issues"
   },
-  "homepage": "https://github.com/DenysMazur/react-app-site-using-statistics-by-users-visualization#readme",
+  "homepage": "https://github.com/DenysMazur/react-app-users-statistic#readme",
+  "dependencies": {
+    "config": "^3.3.7",
+    "cors": "^2.8.5",
+    "express": "^4.17.2",
+    "sequelize": "^6.13.0",
+    "sqlite3": "^5.0.2"
+  },
   "devDependencies": {
+    "cross-env": "^7.0.3",
+    "eslint": "^8.7.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-prettier": "^4.0.0",
     "husky": "^7.0.0",
-    "lerna": "^4.0.0"
+    "lint-staged": "^12.2.2",
+    "nodemon": "^2.0.15",
+    "prettier": "^2.5.1"
+  },
+  "lint-staged": {
+    "*.{js,ts,jsx,tsx}": [
+      "eslint --fix"
+    ]
   }
 }
