@@ -48,5 +48,8 @@
     "*.{js,ts,jsx,tsx}": [
       "eslint --fix"
     ]
+  },
+  "engines": {
+    "node": "16.13.0"
   }
 }
