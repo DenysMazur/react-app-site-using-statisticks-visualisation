@@ -1,10 +1,9 @@
 import React from 'react'
-import { useNavigate } from 'react-router-dom'
 import { useTheme } from '@mui/material/styles'
-import { AppBar, Button, Toolbar, Box } from '@mui/material'
+import { Box } from '@mui/material'
 import ContentContainer from '../ContentContainer/ContentContainer'
 
-const Footer = ({ displayElem }) => {
+const Footer = () => {
   const theme = useTheme()
   return (
     <Box
