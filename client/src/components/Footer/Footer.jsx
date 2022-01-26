@@ -3,12 +3,13 @@ import { useTheme } from '@mui/material/styles'
 import { Box } from '@mui/material'
 import ContentContainer from '../ContentContainer/ContentContainer'
 
-const Footer = () => {
+const Footer = ({ displayElem }) => {
   const theme = useTheme()
   return (
     <Box
       sx={{
-        background: theme.palette.secondary.main
+        background: theme.palette.secondary.main,
+        display: displayElem ? 'block' : 'none'
       }}
     >
       <ContentContainer>
